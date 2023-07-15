@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { getProjects } from '@/sanity/sanity-utils'
 
 export default async function Home() {
@@ -21,23 +22,24 @@ export default async function Home() {
       <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3">
         {
           projects.map((project) => (
-            <div 
+            <Link
               key={project._id}
-              className="border border-gray-500 rounded-lg"
+              className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition"
+              href={`/projects/${project.slug}`}
             >
               {project.image && (
                 <Image 
                   src={project.image}
                   alt={project.name}
-                  width={250}
-                  height={100}
+                  width={750}
+                  height={300}
                   className="object-cover rounded-lg border border-gray-500"
                 />
               )}
-              <div className="font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+              <div className="mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
                 {project.name}
               </div>
-            </div>
+            </Link>
           ))
         }
       </div>
