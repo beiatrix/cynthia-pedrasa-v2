@@ -8,13 +8,13 @@
       >
     </div>
     <div class="col-span-12 md:col-span-9 p-4 content-center">
-      <h1 class="text-6xl font-bold font-serif tracking-wide mb-4">
+      <h1 class="text-6xl text-center sm:text-start font-bold font-serif tracking-wide mb-4">
         Cynthia Pedrasa
       </h1>
-      <h2 class="text-2xl text-true-blue font-bold mb-4">
+      <h2 class="text-2xl text-center sm:text-start text-true-blue font-bold mb-4">
         MS, RN-BC, PMP, CPHIMS
       </h2>
-      <h3 class="font-bold text-lg">
+      <h3 class="font-bold text-center sm:text-start text-xl">
         I am a Registered Nurse working as a Clinical Informatics Specialist at Northwell Health.
         Computers, information science, and their applications in the healthcare setting have always fascinated me.
       </h3>
