@@ -15,19 +15,26 @@ export default defineNuxtConfig({
           hid: 'description',
           name: 'description',
           content:
-            'I am a Registered Nurse working as a Clinical Informatics Specialist at Northwell Health. Computers, information science, and their applications in the healthcare setting have always fascinated me.'
+            'MS, RN-BC, PMP, CPHIMS'
         }
       ],
     },
   },
   compatibilityDate: '2024-04-03',
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   devtools: {
     enabled: true
   },
   googleFonts: {
     display: 'swap',
     families: {
-      'DM Sans': true
+      'DM Sans': true,
+      'DM Serif Display': true
     }
   },
   modules: [
