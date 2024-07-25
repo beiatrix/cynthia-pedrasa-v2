@@ -1,0 +1,6 @@
+2024-07-24T20:45:57.386775Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/1.cookie"), AnchoredSystemPathBuf(".turbo/cookies/.turbo-cookie")}
+2024-07-24T20:45:57.386795Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-07-24T20:45:57.487058Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache")}
+2024-07-24T20:45:57.487074Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-07-24T20:46:05.186875Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/backend/.sanity/runtime/index.html"), AnchoredSystemPathBuf("apps/backend/.sanity/runtime/app.js")}
+2024-07-24T20:46:05.186890Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("cynthia-pedrasa-v2-backend"), path: AnchoredSystemPathBuf("apps/backend") }}))
