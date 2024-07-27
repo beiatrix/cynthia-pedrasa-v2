@@ -1,4 +1,36 @@
 <script setup lang=ts>
+// types
+import type { About } from '@/types'
+
+/**
+ * data fetching
+ * ================================================================
+ */
+const query = groq`*[_type == "about"]`
+const { data } = useSanityQuery<About[]>(query, { topic: 'News' })
+
+/**
+ * content
+ * ================================================================
+ */
+const about = computed(() => {
+  return data.value
+    ? data.value[0]
+    : undefined
+})
+
+const certifications = computed(() => {
+  return about.value
+    ? about.value.certifications
+    : ''
+})
+
+const shortBio = computed(() => {
+  return about.value
+    ? about.value.shortBio
+    : ''
+})
+
 /**
  * @todo: present images
  * https://www.sanity.io/docs/presenting-images
@@ -19,11 +51,10 @@
         Cynthia Pedrasa
       </h1>
       <h2 class="text-2xl text-center sm:text-start text-true-blue font-bold mb-4">
-        MS, RN-BC, PMP, CPHIMS
+        {{ certifications }}
       </h2>
-      <h3 class="font-bold text-center sm:text-start text-xl">
-        I am a Registered Nurse working as a Clinical Informatics Specialist at Northwell Health.
-        Computers, information science, and their applications in the healthcare setting have always fascinated me.
+      <h3 class="font-bold text-center whitespace-pre-wrap sm:text-start text-xl">
+        {{ shortBio }}
       </h3>
     </div>
   </div>
