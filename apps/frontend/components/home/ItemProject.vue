@@ -1,6 +1,6 @@
 <template>
   <div class="mb-8">
-    <h1 class="text-2xl font-bold font-serif tracking-wide mb-2">
+    <h1 class="text-2xl font-bold font-serif mb-2">
       <button class="text-true-blue hover:text-aqua">
         Project Name
       </button>

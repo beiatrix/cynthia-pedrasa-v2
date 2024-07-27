@@ -1,28 +1,41 @@
 import { defineField, defineType } from 'sanity'
 
-/**
- * @todo: create singleton page
- * https://www.sanity.io/docs/create-a-link-to-a-single-edit-page-in-your-main-document-type-list
- */
-
 export default defineType({
   name: 'about',
   title: 'About Me',
   type: 'document',
   fields: [
     defineField({
+      name: 'profileImage',
+      title: 'Profile Image',
+      type: 'image',
+      description:
+        'Upload your picture, then use the crop tool for best results!',
+      options: {
+        hotspot: true
+      }
+    }),
+    defineField({
       name: 'certifications',
       title: 'Certifications',
+      description: 'What are your titles or certifications?',
       type: 'string'
     }),
     defineField({
       name: 'shortBio',
       title: 'Short Bio',
-      type: 'text'
+      description:
+        'A short bio, for the site header (max 200 characters)',
+      type: 'text',
+      validation: (Rule) => {
+        return Rule.max(200)
+          .warning('Content should not exceed 200 characters.')
+      }
     }),
     defineField({
       name: 'longBio',
       title: 'Long Bio',
+      description: 'A longer bio, for the "About" section',
       type: 'text'
     })
   ]

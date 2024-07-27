@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'projects',
+  name: 'project',
   title: 'Projects',
   type: 'document',
   fields: [
@@ -20,12 +20,22 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      /**
-       * @todo: markdown
-       */
+      name: 'description',
+      title: 'Description',
       type: 'text'
-    })
+    }),
+    /**
+     * @todo: markdown
+     */
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        {
+          type: 'block'
+        }
+      ]
+    }
   ]
 })
