@@ -3,31 +3,27 @@
 import type { About } from '@/types'
 
 /**
- * data fetching
+ * props
  * ================================================================
  */
-const query = groq`*[_type == "about"]`
-const { data } = useSanityQuery<About[]>(query, { topic: 'News' })
+interface Props {
+  about: About | undefined
+}
+const props = defineProps<Props>()
 
 /**
  * content
  * ================================================================
  */
-const about = computed(() => {
-  return data.value
-    ? data.value[0]
-    : undefined
-})
-
 const certifications = computed(() => {
-  return about.value
-    ? about.value.certifications
+  return props.about
+    ? props.about.certifications
     : ''
 })
 
 const shortBio = computed(() => {
-  return about.value
-    ? about.value.shortBio
+  return props.about
+    ? props.about.shortBio
     : ''
 })
 
