@@ -6,16 +6,25 @@ import type { About } from '@/types'
  * data fetching
  * ================================================================
  */
-const query = groq`*[_type == "about"]`
-const { data } = useSanityQuery<About[]>(query, { topic: 'News' })
+const aboutQuery = groq`*[_type == "about"]`
+const { data: aboutData } = useSanityQuery<About[]>(aboutQuery)
+
+const projectQuery = groq`*[_type == "project"]`
+const { data: projectData } = useSanityQuery<Project[]>(projectQuery)
 
 /**
  * content
  * ================================================================
  */
 const about = computed(() => {
-  return data.value
-    ? data.value[0]
+  return aboutData.value
+    ? aboutData.value[0]
+    : undefined
+})
+
+const projects = computed(() => {
+  return projectData.value
+    ? projectData.value
     : undefined
 })
 </script>
@@ -24,6 +33,6 @@ const about = computed(() => {
   <div>
     <Header :about="about" />
     <About :about="about" />
-    <ListProjects />
+    <ListProjects :projects="projects" />
   </div>
 </template>

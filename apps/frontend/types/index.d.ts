@@ -1,3 +1,3 @@
-export { About } from './about'
-export { Image } from './image'
-export { Project } from './project'
+export * from './about'
+export * from './image'
+export * from './project'
