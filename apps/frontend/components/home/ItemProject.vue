@@ -18,9 +18,12 @@ defineProps<Props>()
     class="mb-8"
   >
     <h1 class="text-2xl font-bold font-serif mb-2">
-      <button class="text-true-blue hover:text-aqua">
+      <nuxt-link
+        class="text-true-blue hover:text-aqua"
+        :to="`/projects/${project.slug.current}`"
+      >
         {{ project.title }}
-      </button>
+      </nuxt-link>
     </h1>
     <p>
       {{ project.description }}

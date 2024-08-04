@@ -1,6 +1,6 @@
 <script setup lang=ts>
 // types
-import type { About } from '@/types'
+import type { About, Project } from '@/types'
 
 /**
  * data fetching
@@ -9,8 +9,15 @@ import type { About } from '@/types'
 const aboutQuery = groq`*[_type == "about"]`
 const { data: aboutData } = useSanityQuery<About[]>(aboutQuery)
 
-const projectQuery = groq`*[_type == "project"]`
-const { data: projectData } = useSanityQuery<Project[]>(projectQuery)
+const projectsQuery = groq`*[_type == "project"]{
+  title,
+  slug,
+  description,
+  category
+}`
+const { data: projectsData } = useSanityQuery<Partial<Project>[]>(
+  projectsQuery
+)
 
 /**
  * content
@@ -23,8 +30,8 @@ const about = computed(() => {
 })
 
 const projects = computed(() => {
-  return projectData.value
-    ? projectData.value
+  return projectsData.value
+    ? projectsData.value
     : undefined
 })
 </script>

@@ -7,7 +7,7 @@ import type { Project } from '@/types'
  * ================================================================
  */
 interface Props {
-  projects?: Project[] | undefined
+  projects?: Partial<Project>[] | undefined
 }
 const props = withDefaults(defineProps<Props>(), {
   projects: () => []
@@ -19,13 +19,15 @@ const props = withDefaults(defineProps<Props>(), {
  */
 const projectsByCategory = computed(() => {
   return props.projects.reduce((categories, project) => {
-    if (project.category in categories) {
-      categories[project.category].push(project)
-    } else {
-      categories[project.category] = [project]
+    if (project.category) {
+      if (project.category in categories) {
+        categories[project.category].push(project)
+      } else {
+        categories[project.category] = [project]
+      }
     }
     return categories
-  }, {} as { [key: string]: Project[] })
+  }, {} as { [key: string]: Partial<Project>[] })
 })
 </script>
 
