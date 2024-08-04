@@ -23,21 +23,45 @@ export default defineType({
     }),
     defineField({
       name: 'description',
-      description: 'Short description of project, appears on the home page',
+      description: 'Short description of project – appears on the home page',
       title: 'Description',
-      type: 'text'
+      type: 'array',
+      of: [
+        {
+          type: 'block'
+        }
+      ]
     }),
-    /**
-     * @todo: markdown
-     */
     {
       name: 'content',
-      description: 'Project content, appears in the project page',
+      description: 'Project content – appears in the project page',
       title: 'Content',
       type: 'array',
       of: [
         {
           type: 'block'
+        },
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              options: {
+                isHighlighted: true // This ensures the field appears in the editor
+              }
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              options: {
+                isHighlighted: true // This ensures the field appears in the editor
+              }
+            }
+          ]
         }
       ]
     },

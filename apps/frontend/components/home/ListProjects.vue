@@ -43,7 +43,10 @@ const projectsByCategory = computed(() => {
         v-for="(categoryProjects, category) in projectsByCategory"
         :key="`item-category-${category}`"
       >
-        <h1 class="uppercase font- tracking-wider border-b-2 border-gray-300 pb-2 mb-4">
+        <h1
+          v-if="category"
+          class="uppercase font-bold text-gray-500 tracking-wider border-b-2 border-gray-300 pb-2 mb-4"
+        >
           {{ category }}
         </h1>
         <ItemProject

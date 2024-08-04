@@ -1,4 +1,4 @@
-export interface Content {
+export interface Block {
   markDefs: []
   children: [
     {
@@ -21,9 +21,9 @@ export interface Project {
   },
   title: string
   _createdAt: string
-  description: string
+  description: Block[]
   category: string
-  content: Content[]
+  content: Block[]
   _rev: string
   _type: string
   _updatedAt: string

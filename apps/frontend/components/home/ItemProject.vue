@@ -7,7 +7,7 @@ import type { Project } from '@/types'
  * ================================================================
  */
 interface Props {
-  project?: Project | undefined
+  project?: Partial<Project> | undefined
 }
 defineProps<Props>()
 </script>
@@ -17,7 +17,7 @@ defineProps<Props>()
     v-if="project"
     class="mb-8"
   >
-    <h1 class="text-2xl font-bold font-serif mb-2">
+    <h1 class="text-2xl font-bold mb-2">
       <nuxt-link
         class="text-true-blue hover:text-aqua"
         :to="`/projects/${project.slug.current}`"
@@ -25,8 +25,6 @@ defineProps<Props>()
         {{ project.title }}
       </nuxt-link>
     </h1>
-    <p>
-      {{ project.description }}
-    </p>
+    <SanityContent :blocks="project.description" />
   </div>
 </template>

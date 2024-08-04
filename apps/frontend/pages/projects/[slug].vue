@@ -35,7 +35,13 @@ const project = computed(() => {
 </script>
 
 <template>
-  <div>
-    {{ project }}
+  <div
+    v-if="project"
+    class="py-6"
+  >
+    <h1 class="text-4xl font-bold font-serif pb-4">
+      {{ project.title }}
+    </h1>
+    <SanityContent :blocks="project.content" />
   </div>
 </template>

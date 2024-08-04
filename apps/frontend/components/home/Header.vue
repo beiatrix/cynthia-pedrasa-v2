@@ -34,7 +34,7 @@ const shortBio = computed(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-12 gap-4 my-6 py-6 border-b-2 border-gray-400">
+  <div class="grid grid-cols-12 gap-4 my-6 py-6 border-b-2 border-gray-300">
     <div class="col-span-12 md:col-span-3 flex justify-center items-center">
       <img
         src="https://place-hold.it/300"
