@@ -13,7 +13,7 @@ export default {
         light: '#edf2f4',
         'navy-blue': '#03045E',
         'true-blue': '#0077B6',
-        aqua: '#00B4D8',
+        'aqua-blue': '#00B4D8',
         'sky-blue': '#90E0EF',
         'powder-blue': '#CAF0F8'
       }
