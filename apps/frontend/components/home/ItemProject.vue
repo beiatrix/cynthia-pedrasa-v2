@@ -1,12 +1,44 @@
+<script setup lang="ts">
+// types
+import type { Project } from '@/types'
+
+/**
+ * props
+ * ================================================================
+ */
+interface Props {
+  project?: Partial<Project> | undefined
+}
+defineProps<Props>()
+</script>
+
 <template>
-  <div class="mb-8">
-    <h1 class="text-2xl font-bold font-serif tracking-wide mb-2">
-      <button class="text-true-blue hover:text-aqua">
-        Project Name
-      </button>
+  <div
+    v-if="project"
+    class="mb-8"
+  >
+    <h1 class="text-2xl font-bold mb-2">
+      <nuxt-link
+        class="text-true-blue hover:text-aqua-blue"
+        :to="`/projects/${project.slug.current}`"
+      >
+        {{ project.title }}
+      </nuxt-link>
     </h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <div class="sanity-content">
+      <SanityContent :blocks="project.description" />
+    </div>
   </div>
 </template>
+
+<style scoped>
+.sanity-content :deep(a) {
+  color: var(--color-true-blue);
+  text-decoration: underline;
+}
+
+.sanity-content :deep(a):hover {
+  color: var(--color-aqua-blue);
+  text-decoration: underline;
+}
+</style>

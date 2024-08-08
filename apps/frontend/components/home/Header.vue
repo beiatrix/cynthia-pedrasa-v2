@@ -1,3 +1,38 @@
+<script setup lang=ts>
+// types
+import type { About } from '@/types'
+
+/**
+ * props
+ * ================================================================
+ */
+interface Props {
+  about: About | undefined
+}
+const props = defineProps<Props>()
+
+/**
+ * content
+ * ================================================================
+ */
+const certifications = computed(() => {
+  return props.about
+    ? props.about.certifications
+    : ''
+})
+
+const shortBio = computed(() => {
+  return props.about
+    ? props.about.shortBio
+    : ''
+})
+
+/**
+ * @todo: present images
+ * https://www.sanity.io/docs/presenting-images
+ */
+</script>
+
 <template>
   <div class="grid grid-cols-12 gap-4 my-6 py-6 border-b-2 border-gray-300">
     <div class="col-span-12 md:col-span-3 flex justify-center items-center">
@@ -8,15 +43,14 @@
       >
     </div>
     <div class="col-span-12 md:col-span-9 p-4 content-center">
-      <h1 class="text-6xl text-center sm:text-start font-bold font-serif tracking-wide mb-4">
+      <h1 class="text-6xl text-center sm:text-start font-bold font-serif mb-4">
         Cynthia Pedrasa
       </h1>
       <h2 class="text-2xl text-center sm:text-start text-true-blue font-bold mb-4">
-        MS, RN-BC, PMP, CPHIMS
+        {{ certifications }}
       </h2>
-      <h3 class="font-bold text-center sm:text-start text-xl">
-        I am a Registered Nurse working as a Clinical Informatics Specialist at Northwell Health.
-        Computers, information science, and their applications in the healthcare setting have always fascinated me.
+      <h3 class="font-bold text-center whitespace-pre-wrap sm:text-start text-xl">
+        {{ shortBio }}
       </h3>
     </div>
   </div>

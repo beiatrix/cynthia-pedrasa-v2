@@ -5,11 +5,11 @@ export default defineNuxtConfig({
       title: 'Cynthia Pedrasa',
       meta: [
         {
-          "name": "viewport",
-          "content": "width=device-width, initial-scale=1"
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1'
         },
         {
-          "charset": "utf-8"
+          charset: 'utf-8'
         },
         {
           hid: 'description',
@@ -17,15 +17,15 @@ export default defineNuxtConfig({
           content:
             'MS, RN-BC, PMP, CPHIMS'
         }
-      ],
-    },
+      ]
+    }
   },
   compatibilityDate: '2024-04-03',
   components: [
     {
       path: '~/components',
-      pathPrefix: false,
-    },
+      pathPrefix: false
+    }
   ],
   devtools: {
     enabled: true
@@ -39,6 +39,11 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/google-fonts',
-    '@nuxtjs/tailwindcss'
-  ]
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/sanity'
+  ],
+  sanity: {
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+    dataset: 'production'
+  }
 })

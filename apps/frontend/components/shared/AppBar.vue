@@ -8,8 +8,8 @@
       >
     </a>
     <div>
-      <button class="mx-4 hover:text-aqua">btn 1</button>
-      <button class="mx-4 hover:text-aqua">btn 2</button>
+      <button class="mx-4 hover:text-aqua-blue">btn 1</button>
+      <button class="mx-4 hover:text-aqua-blue">btn 2</button>
     </div>
   </div>
 </template>
