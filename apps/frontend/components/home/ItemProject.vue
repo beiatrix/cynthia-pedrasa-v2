@@ -25,6 +25,20 @@ defineProps<Props>()
         {{ project.title }}
       </nuxt-link>
     </h1>
-    <SanityContent :blocks="project.description" />
+    <div class="sanity-content">
+      <SanityContent :blocks="project.description" />
+    </div>
   </div>
 </template>
+
+<style scoped>
+.sanity-content :deep(a) {
+  color: var(--color-true-blue);
+  text-decoration: underline;
+}
+
+.sanity-content :deep(a):hover {
+  color: var(--color-aqua);
+  text-decoration: underline;
+}
+</style>
