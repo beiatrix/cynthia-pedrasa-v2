@@ -38,14 +38,15 @@ const shortBio = computed(() => {
   <div class="grid grid-cols-12 gap-4 my-6 py-6 border-b-2 border-gray-300">
     <div class="col-span-12 md:col-span-3 flex justify-center items-center">
       <SanityImage
+        v-if="profileImage"
         :asset-id="profileImage.asset._ref"
         auto="format"
         alt="Profile Image"
         class="circular-image"
         crop="focalpoint"
         fit="crop"
-        :fp-x="profileImage.hotspot.x"
-        :fp-y="profileImage.hotspot.y"
+        :fp-x="profileImage.hotspot?.x || 0.5"
+        :fp-y="profileImage.hotspot?.y || 0.5"
         :h="200"
         :w="200"
       />
