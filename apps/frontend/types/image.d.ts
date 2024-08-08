@@ -11,7 +11,7 @@ export interface Image {
     top: number
     left: number
   }
-  hotspot:{
+  hotspot: {
     width: number
     x: number
     y: number

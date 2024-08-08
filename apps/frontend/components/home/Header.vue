@@ -21,26 +21,34 @@ const certifications = computed(() => {
     : ''
 })
 
+const profileImage = computed(() => {
+  return props.about
+    ? props.about.profileImage
+    : ''
+})
+
 const shortBio = computed(() => {
   return props.about
     ? props.about.shortBio
     : ''
 })
-
-/**
- * @todo: present images
- * https://www.sanity.io/docs/presenting-images
- */
 </script>
 
 <template>
   <div class="grid grid-cols-12 gap-4 my-6 py-6 border-b-2 border-gray-300">
     <div class="col-span-12 md:col-span-3 flex justify-center items-center">
-      <img
-        src="https://place-hold.it/300"
-        alt="Placeholder Image"
+      <SanityImage
+        :asset-id="profileImage.asset._ref"
+        auto="format"
+        alt="Profile Image"
         class="circular-image"
-      >
+        crop="focalpoint"
+        fit="crop"
+        :fp-x="profileImage.hotspot.x"
+        :fp-y="profileImage.hotspot.y"
+        :h="200"
+        :w="200"
+      />
     </div>
     <div class="col-span-12 md:col-span-9 p-4 content-center">
       <h1 class="text-6xl text-center sm:text-start font-bold font-serif mb-4">
