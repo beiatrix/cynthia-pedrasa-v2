@@ -19,7 +19,7 @@ defineProps<Props>()
   >
     <h1 class="text-2xl font-bold mb-2">
       <nuxt-link
-        class="text-true-blue hover:text-aqua-blue"
+        class="text-true-blue transition-colors hover:text-aqua-blue"
         :to="`/projects/${project.slug.current}`"
       >
         {{ project.title }}
@@ -35,6 +35,7 @@ defineProps<Props>()
 .sanity-content :deep(a) {
   color: var(--color-true-blue);
   text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
 .sanity-content :deep(a):hover {

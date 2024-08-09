@@ -12,7 +12,7 @@ const aboutQuery = groq`*[_type == "about"]{
 const { data: aboutData } = useSanityQuery<Partial<About>[]>(aboutQuery)
 
 /**
- * content
+ * menu items
  * ================================================================
  */
 const about = computed(() => {
@@ -21,11 +21,44 @@ const about = computed(() => {
     : undefined
 })
 
+const menuItems = computed(() => {
+  return [
+    {
+      section: 'about',
+      buttonText: 'About'
+    },
+    {
+      section: 'projects',
+      buttonText: 'Projects'
+    }
+  ]
+})
+
 const resumeURL = computed(() => {
   return about.value
     ? about.value.resume?.asset._ref
     : undefined
 })
+
+/**
+ * methods
+ * ================================================================
+ */
+function scrollTo (section: string) {
+  const sectionElement = document.getElementById(section)
+  if (sectionElement) {
+    // Calculate position of section with offset
+    const rect = sectionElement.getBoundingClientRect()
+    const offset = document.documentElement.scrollTop
+    const targetPosition = rect.top + offset - 64
+
+    // Smooth scroll to the section
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
 </script>
 
 <template>
@@ -38,10 +71,15 @@ const resumeURL = computed(() => {
       >
     </a>
     <div>
-      <button class="mx-4 hover:text-aqua-blue">
-        btn 1
+      <button
+        v-for="item in menuItems"
+        :key="`menu-item-${item}`"
+        class="mx-4 transition-colors text-gray-800 hover:text-aqua-blue "
+        @click="scrollTo(item.section)"
+      >
+        {{ item.buttonText }}
       </button>
-      <button class="mx-4 hover:text-aqua-blue">
+      <button class="mx-4 transition-colors text-gray-800 hover:text-aqua-blue">
         <SanityFile
           v-if="resumeURL"
           :asset-id="resumeURL"
