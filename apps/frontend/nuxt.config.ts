@@ -40,7 +40,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/sanity'
+    '@nuxtjs/sanity',
+    '@nuxt/icon'
   ],
   sanity: {
     projectId: process.env.SANITY_STUDIO_PROJECT_ID,

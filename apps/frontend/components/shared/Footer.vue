@@ -6,24 +6,29 @@
 const contactItems = computed(() => {
   return [
     {
-      url: 'https://www.linkedin.com/in/cynthiapedrasa/',
-      text: 'LinkedIn'
+      icon: 'mdi:linkedin',
+      text: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/cynthiapedrasa/'
     },
     {
-      url: 'mailto:cpedrasa@gmail.com',
-      text: 'Mail'
+      icon: 'material-symbols:mail',
+      text: 'Mail',
+      url: 'mailto:cpedrasa@gmail.com'
     },
     {
-      url: 'https://github.com/cynthiapedrasa/',
-      text: 'GitHub'
+      icon: 'mdi:github',
+      text: 'GitHub',
+      url: 'https://github.com/cynthiapedrasa/'
     },
     {
-      url: 'https://cpedrasa.github.io/',
-      text: 'Blog'
+      icon: 'mdi:post-it-note-edit',
+      text: 'Blog',
+      url: 'https://cpedrasa.github.io/'
     },
     {
-      url: 'https://www.instagram.com/rndatasci/',
-      text: 'Instagram'
+      icon: 'mdi:instagram',
+      text: 'Instagram',
+      url: 'https://www.instagram.com/rndatasci/'
     }
   ]
 })
@@ -32,21 +37,19 @@ const contactItems = computed(() => {
 <template>
   <div
     id="footer"
-    class="w-screen h-16 px-2 bottom-0 fixed flex justify-center items-center bg-gray-800"
+    class="w-screen h-20 px-2 bottom-0 fixed flex justify-center items-center bg-gray-800"
   >
     <a
       v-for="item in contactItems"
       :key="`menu-item-${item.text}`"
-      class="px-2 text-white transition-colors hover:text-aqua-blue"
+      class="px-4 text-white transition-colors hover:text-aqua-blue"
       :href="item.url"
       target="_blank"
     >
-      <!-- <img
-        src="/cp-logo.svg"
-        class="h-6 mx-4"
-        alt="logo"
-      > -->
-      {{ item.text }}
+      <Icon
+        :name="item.icon"
+        size="32"
+      />
     </a>
   </div>
 </template>

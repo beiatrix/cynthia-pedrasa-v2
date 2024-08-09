@@ -74,12 +74,12 @@ function scrollTo (section: string) {
       <button
         v-for="item in menuItems"
         :key="`menu-item-${item}`"
-        class="mx-4 transition-colors text-gray-800 hover:text-aqua-blue "
+        class="mx-4 font-bold transition-colors text-gray-700 hover:text-aqua-blue"
         @click="scrollTo(item.section)"
       >
         {{ item.buttonText }}
       </button>
-      <button class="mx-4 transition-colors text-gray-800 hover:text-aqua-blue">
+      <button class="mx-4 font-bold transition-colors text-gray-700 hover:text-aqua-blue">
         <SanityFile
           v-if="resumeURL"
           :asset-id="resumeURL"
