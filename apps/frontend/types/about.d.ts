@@ -1,4 +1,4 @@
-import type { Image } from '.'
+import type { File, Image } from '.'
 
 export interface About {
   _createdAt: string
@@ -9,5 +9,6 @@ export interface About {
   _type: string
   longBio: string
   _rev: string
+  resume: File
   profileImage: Image
 }

@@ -37,6 +37,15 @@ export default defineType({
       title: 'Long Bio',
       description: 'A longer bio, for the "About" section',
       type: 'text'
+    }),
+    defineField({
+      name: 'resume',
+      title: 'Resume',
+      description: 'Upload your resume here (PDF)',
+      type: 'file',
+      options: {
+        accept: 'application/pdf'
+      }
     })
   ]
 })

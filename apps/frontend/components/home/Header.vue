@@ -7,7 +7,7 @@ import type { About } from '@/types'
  * ================================================================
  */
 interface Props {
-  about: About | undefined
+  about: Partial<About> | undefined
 }
 const props = defineProps<Props>()
 

@@ -6,8 +6,14 @@ import type { About, Project } from '@/types'
  * data fetching
  * ================================================================
  */
-const aboutQuery = groq`*[_type == "about"]`
-const { data: aboutData } = useSanityQuery<About[]>(aboutQuery)
+const aboutQuery = groq`*[_type == "about"]{
+  certifications,
+  longBio,
+  profileImage,
+  resume,
+  shortBio
+}`
+const { data: aboutData } = useSanityQuery<Partial<About>[]>(aboutQuery)
 
 const projectsQuery = groq`*[_type == "project"]{
   title,
