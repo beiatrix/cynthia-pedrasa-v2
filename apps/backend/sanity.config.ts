@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
+import { markdownSchema } from 'sanity-plugin-markdown'
 import { schemaTypes } from './schemaTypes'
 import deskStructure from './deskStructure'
 
@@ -13,7 +14,8 @@ export default defineConfig({
 
   plugins: [
     structureTool({ structure: deskStructure }),
-    visionTool()
+    visionTool(),
+    markdownSchema()
   ],
 
   schema: {

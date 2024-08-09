@@ -15,7 +15,8 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/sanity": "^1.11.5",
     "nuxt": "^3.12.4",
-    "vue": "latest"
+    "vue": "latest",
+    "vue3-markdown-it": "^1.0.10"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1"

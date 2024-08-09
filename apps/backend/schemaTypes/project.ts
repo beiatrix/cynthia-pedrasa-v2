@@ -34,36 +34,9 @@ export default defineType({
     }),
     {
       name: 'content',
-      description: 'Project content – appears in the project page',
+      description: 'Project content written in Markdown – appears in the project page',
       title: 'Content',
-      type: 'array',
-      of: [
-        {
-          type: 'block'
-        },
-        {
-          type: 'image',
-          options: { hotspot: true },
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative text',
-              options: {
-                isHighlighted: true // This ensures the field appears in the editor
-              }
-            },
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-              options: {
-                isHighlighted: true // This ensures the field appears in the editor
-              }
-            }
-          ]
-        }
-      ]
+      type: 'markdown'
     },
     defineField({
       name: 'category',

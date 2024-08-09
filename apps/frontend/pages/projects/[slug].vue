@@ -2,6 +2,9 @@
 // types
 import type { Project } from '@/types'
 
+// markdown
+import Markdown from 'vue3-markdown-it'
+
 /**
  * route
  * ================================================================
@@ -32,6 +35,31 @@ const project = computed(() => {
     ? projectData.value
     : undefined
 })
+
+/**
+ * images
+ * ================================================================
+ */
+const projectContentElement = ref<HTMLElement | undefined>(undefined)
+function applyStyles () {
+  const h1Tags = projectContentElement.value?.getElementsByTagName('h1')
+  if (h1Tags) {
+    for (const h1 of h1Tags) {
+      h1.classList.add('text-4xl')
+    }
+  }
+}
+
+// lifecycle hooks
+onMounted(async () => {
+  await nextTick()
+  applyStyles()
+})
+
+onUpdated(async () => {
+  await nextTick()
+  applyStyles()
+})
 </script>
 
 <template>
@@ -42,6 +70,13 @@ const project = computed(() => {
     <h1 class="text-4xl font-bold font-serif pb-4">
       {{ project.title }}
     </h1>
-    <SanityContent :blocks="project.content" />
+    <client-only>
+      <div ref="projectContentElement">
+        <Markdown
+          v-if="project.content"
+          :source="project.content"
+        />
+      </div>
+    </client-only>
   </div>
 </template>

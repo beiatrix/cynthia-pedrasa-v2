@@ -23,7 +23,7 @@ export interface Project {
   _createdAt: string
   description: Block[]
   category: string
-  content: Block[]
+  content: string
   _rev: string
   _type: string
   _updatedAt: string
