@@ -16,7 +16,7 @@ const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
   title,
   content
 }`
-const { data: projectData } = useSanityQuery<Partial<Project>[]>(
+const { data: projectData } = useSanityQuery<Partial<Project>>(
   projectQuery,
   {
     slug: route.params.slug
@@ -32,6 +32,12 @@ const project = computed(() => {
     ? projectData.value
     : undefined
 })
+
+const serializers = {
+  types: {
+    image: resolveComponent('BlockImage')
+  }
+}
 
 /**
  * styles
@@ -74,7 +80,10 @@ onUpdated(async () => {
         ref="projectContentElement"
         class="prose"
       >
-        <SanityContent :blocks="project.content" />
+        <SanityContent
+          :blocks="project.content"
+          :serializers="serializers"
+        />
       </div>
     </client-only>
   </div>
