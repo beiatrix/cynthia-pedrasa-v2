@@ -9,26 +9,25 @@ import type { Project } from '@/types'
 interface Props {
   project?: Partial<Project> | undefined
 }
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  project: undefined
+})
 </script>
 
 <template>
-  <div
-    v-if="project"
-    class="mb-8"
-  >
-    <h1 class="text-2xl font-bold mb-2">
+  <ul v-if="project">
+    <li class="font-bold">
+      <span class="text-gray-600">
+        •
+      </span>
       <nuxt-link
-        class="text-true-blue transition-colors hover:text-aqua-blue"
+        class="text-true-blue transition-colors font-bold hover:text-aqua-blue"
         :to="`/projects/${project.slug.current}`"
       >
         {{ project.title }}
       </nuxt-link>
-    </h1>
-    <div class="sanity-content">
-      <SanityContent :blocks="project.description" />
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <style scoped>

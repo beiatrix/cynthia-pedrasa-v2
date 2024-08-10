@@ -19,7 +19,8 @@ const projectsQuery = groq`*[_type == "project"]{
   title,
   slug,
   description,
-  category
+  category,
+  hidden
 }`
 const { data: projectsData } = useSanityQuery<Partial<Project>[]>(
   projectsQuery

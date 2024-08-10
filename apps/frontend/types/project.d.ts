@@ -24,7 +24,8 @@ export interface Project {
   description: Block[]
   category: string
   content: Block[]
+  hidden: boolean
   _rev: string
   _type: string
   _updatedAt: string
-},
+}

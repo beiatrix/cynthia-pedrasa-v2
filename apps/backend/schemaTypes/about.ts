@@ -10,7 +10,7 @@ export default defineType({
       title: 'Profile Image',
       type: 'image',
       description:
-        'Upload your picture, then use the crop tool for best results!',
+        'Upload your profile picture here',
       options: {
         hotspot: true
       }

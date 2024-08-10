@@ -19,6 +19,9 @@ const props = withDefaults(defineProps<Props>(), {
  */
 const projectsByCategory = computed(() => {
   return props.projects.reduce((categories, project) => {
+    if (project.hidden) {
+      return categories
+    }
     if (project.category) {
       if (project.category in categories) {
         categories[project.category].push(project)
@@ -45,12 +48,13 @@ const projectsByCategory = computed(() => {
       <div
         v-for="(categoryProjects, category) in projectsByCategory"
         :key="`item-category-${category}`"
+        class="mb-8"
       >
         <h1
           v-if="category"
-          class="uppercase font-bold text-gray-500 tracking-wider border-b-2 border-gray-300 pb-2 mb-4"
+          class="uppercase font-bold text-gray-600 tracking-wider mb-2"
         >
-          {{ category }}
+          {{ category }} Projects
         </h1>
         <ItemProject
           v-for="project in categoryProjects"

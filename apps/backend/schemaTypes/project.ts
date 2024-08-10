@@ -21,17 +21,6 @@ export default defineType({
         maxLength: 96
       }
     }),
-    defineField({
-      name: 'description',
-      description: 'Short description of project – appears on the home page',
-      title: 'Description',
-      type: 'array',
-      of: [
-        {
-          type: 'block'
-        }
-      ]
-    }),
     {
       name: 'content',
       description: 'Project content – appears in the project page',
@@ -48,18 +37,12 @@ export default defineType({
             {
               name: 'alt',
               type: 'string',
-              title: 'Alternative text',
-              options: {
-                isHighlighted: true // This ensures the field appears in the editor
-              }
+              title: 'Alternative text'
             },
             {
               name: 'caption',
               type: 'string',
-              title: 'Caption',
-              options: {
-                isHighlighted: true // This ensures the field appears in the editor
-              }
+              title: 'Caption'
             }
           ]
         },
@@ -78,7 +61,7 @@ export default defineType({
                   fields: [
                     {
                       name: 'cells',
-                      title: 'Cells',
+                      title: 'Cells (Columns)',
                       type: 'array',
                       of: [{ type: 'string' }]
                     }
@@ -100,7 +83,8 @@ export default defineType({
               options: {
                 list: [
                   { title: 'JavaScript', value: 'javascript' },
-                  { title: 'Python', value: 'python' }
+                  { title: 'Python', value: 'python' },
+                  { title: 'XML', value: 'xml' }
                 ]
               }
             },
@@ -121,6 +105,12 @@ export default defineType({
       description: 'Category of the project',
       title: 'Category',
       type: 'string'
+    }),
+    defineField({
+      name: 'hidden',
+      title: 'Hidden',
+      type: 'boolean',
+      description: 'Hide this project from the home page – useful for viewing in-progress pages at /projects/[slug]'
     })
   ]
 })
