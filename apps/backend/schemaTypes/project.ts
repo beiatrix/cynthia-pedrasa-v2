@@ -85,6 +85,7 @@ export default defineType({
                   { title: 'Text', value: '' },
                   { title: 'JavaScript', value: 'javascript' },
                   { title: 'Python', value: 'python' },
+                  { title: 'SQL', value: 'sql' },
                   { title: 'XML', value: 'xml' }
                 ]
               },
