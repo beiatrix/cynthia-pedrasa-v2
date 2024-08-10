@@ -36,7 +36,8 @@ const project = computed(() => {
 const serializers = {
   types: {
     image: resolveComponent('BlockImage'),
-    table: resolveComponent('BlockTable')
+    table: resolveComponent('BlockTable'),
+    code: resolveComponent('BlockCode')
   }
 }
 

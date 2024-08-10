@@ -87,6 +87,35 @@ export default defineType({
               ]
             }
           ]
+        },
+        {
+          type: 'object',
+          name: 'code',
+          title: 'Code Block',
+          fields: [
+            {
+              name: 'language',
+              title: 'Language',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'JavaScript', value: 'javascript' },
+                  { title: 'Python', value: 'python' },
+                  { title: 'HTML', value: 'html' },
+                  { title: 'CSS', value: 'css' }
+                  // Add more languages as needed
+                ]
+              }
+            },
+            {
+              name: 'code',
+              title: 'Code',
+              type: 'text',
+              options: {
+                rows: 10
+              }
+            }
+          ]
         }
       ]
     },
