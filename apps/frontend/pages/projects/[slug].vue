@@ -50,7 +50,7 @@ const serializers = {
     <client-only>
       <div
         ref="projectContentElement"
-        class="prose"
+        class="prose mx-auto"
       >
         <SanityContent
           :blocks="project.content"
