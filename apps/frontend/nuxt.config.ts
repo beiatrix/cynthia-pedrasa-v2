@@ -43,8 +43,16 @@ export default defineNuxtConfig({
     '@nuxtjs/sanity',
     '@nuxt/icon'
   ],
+  plugins: [
+    '~/plugins/prism.js'
+  ],
   sanity: {
     projectId: process.env.SANITY_STUDIO_PROJECT_ID,
     dataset: 'production'
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['prismjs']
+    }
   }
 })
