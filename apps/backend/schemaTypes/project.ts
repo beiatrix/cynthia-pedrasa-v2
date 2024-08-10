@@ -62,6 +62,31 @@ export default defineType({
               }
             }
           ]
+        },
+        {
+          type: 'object',
+          name: 'table',
+          title: 'Table',
+          fields: [
+            {
+              name: 'rows',
+              title: 'Rows',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  fields: [
+                    {
+                      name: 'cells',
+                      title: 'Cells',
+                      type: 'array',
+                      of: [{ type: 'string' }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },

@@ -35,7 +35,8 @@ const project = computed(() => {
 
 const serializers = {
   types: {
-    image: resolveComponent('BlockImage')
+    image: resolveComponent('BlockImage'),
+    table: resolveComponent('BlockTable')
   }
 }
 
@@ -65,6 +66,8 @@ onUpdated(async () => {
   await nextTick()
   applyStyles()
 })
+
+// console.log('project >>>', project.value?.content)
 </script>
 
 <template>
