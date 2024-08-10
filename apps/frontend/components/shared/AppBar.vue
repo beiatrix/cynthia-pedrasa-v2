@@ -12,6 +12,12 @@ const aboutQuery = groq`*[_type == "about"]{
 const { data: aboutData } = useSanityQuery<Partial<About>[]>(aboutQuery)
 
 /**
+ * router
+ * ==================================================================
+ */
+const router = useRouter()
+
+/**
  * menu items
  * ================================================================
  */
@@ -44,19 +50,14 @@ const resumeURL = computed(() => {
  * methods
  * ================================================================
  */
-function scrollTo (section: string) {
+async function scrollTo (section: string) {
   const sectionElement = document.getElementById(section)
   if (sectionElement) {
-    // Calculate position of section with offset
-    const rect = sectionElement.getBoundingClientRect()
-    const offset = document.documentElement.scrollTop
-    const targetPosition = rect.top + offset - 64
-
-    // Smooth scroll to the section
-    window.scrollTo({
-      top: targetPosition,
-      behavior: 'smooth'
-    })
+    // If on home page, smooth scroll to the section
+    sectionElement.scrollIntoView({ behavior: 'smooth' })
+  } else {
+    // Navigate from another page
+    await router.push(`/#${section}`)
   }
 }
 </script>
