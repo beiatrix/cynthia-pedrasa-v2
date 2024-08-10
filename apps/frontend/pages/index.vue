@@ -46,7 +46,7 @@ const projects = computed(() => {
 <template>
   <div class="not-prose">
     <Header :about="about" />
-    <About :about="about" />
-    <ListProjects :projects="projects" />
+    <SectionAbout :about="about" />
+    <SectionProjects :projects="projects" />
   </div>
 </template>
