@@ -82,11 +82,13 @@ export default defineType({
               type: 'string',
               options: {
                 list: [
+                  { title: 'Text', value: '' },
                   { title: 'JavaScript', value: 'javascript' },
                   { title: 'Python', value: 'python' },
                   { title: 'XML', value: 'xml' }
                 ]
-              }
+              },
+              initialValue: 'python'
             },
             {
               name: 'code',
