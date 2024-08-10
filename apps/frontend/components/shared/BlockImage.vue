@@ -20,6 +20,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div>
     <SanityImage
+      class="mx-auto"
       :asset-id="asset._ref"
       :alt="alt"
     />
