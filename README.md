@@ -33,3 +33,18 @@ To develop all apps and packages, run the following command:
 ```
 yarn dev
 ```
+
+## Deploy
+
+### Frontend
+
+Commits pushed to `main` will automatically trigger a deploy in Vercel.
+
+### Backend
+
+To deploy the backend, run the following command:
+
+```
+cd backend
+sanity deploy
+```

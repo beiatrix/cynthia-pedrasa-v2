@@ -43,7 +43,7 @@ const projects = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="not-prose">
     <Header :about="about" />
     <About :about="about" />
     <ListProjects :projects="projects" />

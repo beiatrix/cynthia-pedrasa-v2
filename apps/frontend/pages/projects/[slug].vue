@@ -32,6 +32,33 @@ const project = computed(() => {
     ? projectData.value
     : undefined
 })
+
+/**
+ * styles
+ * ================================================================
+ */
+const projectContentElement = ref<HTMLElement | undefined>(undefined)
+function applyStyles () {
+  // h1
+  // const h1Tags = projectContentElement.value?.getElementsByTagName('h1')
+  // if (h1Tags) {
+  //   for (const h1 of h1Tags) {
+  //     h1.classList.add('text-4xl')
+  //     h1.classList.add('font-bold')
+  //   }
+  // }
+}
+
+// lifecycle hooks
+onMounted(async () => {
+  await nextTick()
+  applyStyles()
+})
+
+onUpdated(async () => {
+  await nextTick()
+  applyStyles()
+})
 </script>
 
 <template>
@@ -39,9 +66,16 @@ const project = computed(() => {
     v-if="project"
     class="py-6"
   >
-    <h1 class="text-4xl font-bold font-serif pb-4">
+    <h1 class="text-4xl font-bold font-serif pb-8 pt-2">
       {{ project.title }}
     </h1>
-    <SanityContent :blocks="project.content" />
+    <client-only>
+      <div
+        ref="projectContentElement"
+        class="prose"
+      >
+        <SanityContent :blocks="project.content" />
+      </div>
+    </client-only>
   </div>
 </template>

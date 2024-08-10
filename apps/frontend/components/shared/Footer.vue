@@ -37,7 +37,7 @@ const contactItems = computed(() => {
 <template>
   <div
     id="footer"
-    class="w-screen h-20 px-2 bottom-0 fixed flex justify-center items-center bg-gray-800"
+    class="w-screen h-20 px-2 bottom-0 fixed flex justify-center items-center bg-gray-800 not-prose"
   >
     <a
       v-for="item in contactItems"

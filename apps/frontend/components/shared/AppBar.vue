@@ -62,7 +62,7 @@ function scrollTo (section: string) {
 </script>
 
 <template>
-  <div class="w-screen h-16 px-2 top-0 fixed flex justify-between items-center shadow bg-white">
+  <div class="w-screen h-16 px-2 top-0 fixed flex justify-between items-center shadow bg-white not-prose">
     <a href="/">
       <img
         src="/cp-logo.svg"

@@ -24,6 +24,7 @@ export default {
     }
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function ({ addBase, theme }) {
       const colors = theme('colors')
       const newColors = Object.keys(colors).reduce((acc, key) => {
