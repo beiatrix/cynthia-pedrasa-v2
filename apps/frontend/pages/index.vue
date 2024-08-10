@@ -1,5 +1,52 @@
+<script setup lang=ts>
+// types
+import type { About, Project } from '@/types'
+
+/**
+ * data fetching
+ * ================================================================
+ */
+const aboutQuery = groq`*[_type == "about"]{
+  certifications,
+  longBio,
+  profileImage,
+  resume,
+  shortBio
+}`
+const { data: aboutData } = useSanityQuery<Partial<About>[]>(aboutQuery)
+
+const projectsQuery = groq`*[_type == "project"]{
+  title,
+  slug,
+  description,
+  category,
+  hidden
+}`
+const { data: projectsData } = useSanityQuery<Partial<Project>[]>(
+  projectsQuery
+)
+
+/**
+ * content
+ * ================================================================
+ */
+const about = computed(() => {
+  return aboutData.value
+    ? aboutData.value[0]
+    : undefined
+})
+
+const projects = computed(() => {
+  return projectsData.value
+    ? projectsData.value
+    : undefined
+})
+</script>
+
 <template>
-  <Header />
-  <About />
-  <ListProjects />
+  <div class="not-prose">
+    <Header :about="about" />
+    <About :about="about" />
+    <ListProjects :projects="projects" />
+  </div>
 </template>

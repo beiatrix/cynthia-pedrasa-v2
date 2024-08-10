@@ -11,11 +11,15 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "^1.4.5",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sanity": "^1.11.5",
     "nuxt": "^3.12.4",
+    "prismjs": "^1.29.0",
     "vue": "latest"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1"
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@tailwindcss/typography": "^0.5.14"
   }
 }
