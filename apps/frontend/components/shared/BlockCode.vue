@@ -20,6 +20,12 @@ const languageMap = {
   python: 'py'
 } as { [key: string]: string }
 
+function getLanguageClass (language: string) {
+  return language in languageMap
+    ? `lang-${languageMap[language]}`
+    : `lang-${language}`
+}
+
 onMounted(() => {
   const { $Prism } = useNuxtApp()
   $Prism.highlightAll()
@@ -28,9 +34,7 @@ onMounted(() => {
 
 <template>
   <pre>
-    <code
-      :class="`lang-${languageMap[language]}`"
-    >{{ code }}</code>
+    <code :class="getLanguageClass(language)">{{ code }}</code>
   </pre>
 </template>
 
