@@ -35,7 +35,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Add styles to format the code block */
 pre {
   white-space: pre-line;
   overflow-x: auto;
