@@ -6,7 +6,7 @@ import deskStructure from './deskStructure'
 
 export default defineConfig({
   name: 'default',
-  title: 'Cynthia Pedrasa v2',
+  title: 'Cynthia Pedrasa | Portfolio',
 
   projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
   dataset: 'production',
