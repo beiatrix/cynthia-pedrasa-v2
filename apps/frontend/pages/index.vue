@@ -13,7 +13,11 @@ const aboutQuery = groq`*[_type == "about"]{
   resume,
   shortBio
 }`
-const { data: aboutData } = useSanityQuery<Partial<About>[]>(aboutQuery)
+const {
+  data: aboutData,
+  error: aboutError,
+  status: aboutStatus
+} = useSanityQuery<Partial<About>[]>(aboutQuery)
 
 const projectsQuery = groq`*[_type == "project"]{
   title,
@@ -22,9 +26,11 @@ const projectsQuery = groq`*[_type == "project"]{
   category,
   hidden
 }`
-const { data: projectsData } = useSanityQuery<Partial<Project>[]>(
-  projectsQuery
-)
+const {
+  data: projectsData,
+  error: projectsError,
+  status: projectsStatus
+} = useSanityQuery<Partial<Project>[]>(projectsQuery)
 
 /**
  * content
@@ -44,7 +50,18 @@ const projects = computed(() => {
 </script>
 
 <template>
-  <div class="not-prose">
+  <div v-if="aboutStatus === 'pending' || projectsStatus === 'pending'">
+    <div class="flex items-center justify-center mt-[-64px] min-h-screen">
+      <div class="loader" />
+    </div>
+  </div>
+  <div v-else-if="aboutError || projectsError">
+    <Error />
+  </div>
+  <div
+    v-else
+    class="not-prose"
+  >
     <Header :about="about" />
     <SectionAbout :about="about" />
     <SectionProjects :projects="projects" />
