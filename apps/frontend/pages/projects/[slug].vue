@@ -16,7 +16,11 @@ const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
   title,
   content
 }`
-const { data: projectData } = useSanityQuery<Partial<Project>>(
+const {
+  data: projectData,
+  error,
+  status
+} = useSanityQuery<Partial<Project>>(
   projectQuery,
   {
     slug: route.params.slug
@@ -43,8 +47,16 @@ const serializers = {
 </script>
 
 <template>
+  <div v-if="status === 'pending'">
+    <div class="flex items-center justify-center mt-[-84px] min-h-screen">
+      <div class="loader" />
+    </div>
+  </div>
+  <div v-else-if="error">
+    <Error />
+  </div>
   <div
-    v-if="project"
+    v-else-if="project"
     class="py-16"
   >
     <client-only>
